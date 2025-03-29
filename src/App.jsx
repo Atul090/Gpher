@@ -1,11 +1,35 @@
 
+import { children } from 'react';
 import './App.css'
-const { createBrowserRouter, RouterProvider } = ReactRouterDOM;
-import AppLayout from './layout/app-layout'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import AppLayout from './layouts/app-layout'
+import Categories from './pages/categories';
+import Search from './pages/search';
+import Favorites from './pages/favorites';
+import GifPage from './pages/single-gif';
+import Home from './pages/home';
 
 const router = createBrowserRouter([
-  {
-    Element: <AppLayout/>
+  { 
+    element: <AppLayout/>,
+    children: [
+      {
+        path: '/',
+        element: <Home/>,
+      },{
+        path: '/:category',
+        element: <Categories/>,
+      },{
+        path: '/search/:query',
+        element: <Search/>,
+      },{
+        path: '/favorites',
+        element: <Favorites/>,
+      },{
+        path: '/:type/:slug',
+        element: <GifPage/>,
+      },
+    ]
   }
 ])
 
@@ -13,8 +37,12 @@ const router = createBrowserRouter([
 function App() {
 
   return (
-    <div> Gipher</div>
-  )
+    <>
+    <div>hello world</div>
+    <RouterProvider router={router}/>
+    </>
+  );
+
 }
 
 export default App
