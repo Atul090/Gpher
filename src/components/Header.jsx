@@ -10,7 +10,7 @@ const Header = () => {
     return (
         <nav>
             <div className='relative flex gap-4 justify-between itmes-center mb-2'>
-                <Link to='/'>
+                <Link to={'/'} className='flex gap-2'>
                     <img src={logo} className='w-8' alt="Giphy logo" />
                     <h1 className='text-5xl font-bold tracking-tight cursor-pointer'>    
                         GIPHY
