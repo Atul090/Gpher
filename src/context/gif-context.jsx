@@ -11,7 +11,7 @@ const GifProvider = ({ children }) => {
 
     const gf = new GiphyFetch(import.meta.env.VITE_GIPHY_KEY); 
     //to avoid prop drilling
-    return <GifContext.Provider value={{gf,gifs,setGifs,filter,setFilter}}> {children} </GifContext.Provider>
+    return <GifContext.Provider value={{gf,gifs,setGifs,filter,setFilter,favourites,setFavourites}}> {children} </GifContext.Provider>
 }
 
 export const GifState = () => {
