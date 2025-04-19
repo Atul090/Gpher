@@ -8,7 +8,8 @@ import Search from './pages/search';
 import Favorites from './pages/favorites';
 import GifPage from './pages/single-gif';
 import Home from './pages/home';
-
+import GifProvider from './context/gif-context';
+  
 const router = createBrowserRouter([
   { 
     element: <AppLayout/>,
@@ -39,7 +40,9 @@ function App() {
   return (
     <>
     {/* <div>hello world</div> */}
-    <RouterProvider router={router}/>
+    <GifProvider>
+      <RouterProvider router={router}/>
+    </GifProvider>
     </>
   );
 

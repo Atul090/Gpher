@@ -1,12 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 import { HiMiniBars3BottomRight, HiOutlineEllipsisVertical } from 'react-icons/hi2';
+import { GifState } from '../context/gif-context';
 
 const Header = () => {
     const [categories, setCategories] = useState([]);
     const [showCategories, setShowCategories] = useState(false);
+    
+    const {gf,gifs,setGifs,filter,setFilter} = GifState();
 
+    const fetchCategories = async () => {
+        const {data} = await gf.categories();
+        console.log(data)
+        setCategories(data); 
+    }
+
+    useEffect(()=>{
+        fetchCategories();
+    },[]) //called when the dependency array is enpty
 
     return (
         <nav>
@@ -19,9 +31,12 @@ const Header = () => {
                 </Link>
                 <div className='font-bold text-md flex gap-2 items-center'>
                 {/* render categories */}
-                <Link className='px-4 py-1 hover:gradient border-b-4 hidden lg:block'>
-                    Reactions
-                </Link>
+                {categories.slice(0,5)?.map((category)=>{
+                    return <Link key={category.name} to={`/${category.name_encoded}`} className='px-4 py-1 hover:gradient border-b-4 hidden lg:block'>
+                        {category.name}
+                        </Link>
+                })}
+                
                 <button onClick={()=>setShowCategories(!showCategories)}>
                     <HiOutlineEllipsisVertical 
                         size={35}
@@ -46,6 +61,7 @@ const Header = () => {
                 </div>}
             </div>
             {/*  search  */}
+         
         </nav>
     )       
 }
