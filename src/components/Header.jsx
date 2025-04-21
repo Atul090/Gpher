@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 import { HiMiniBars3BottomRight, HiOutlineEllipsisVertical } from 'react-icons/hi2';
 import { GifState } from '../context/gif-context';
+import GifSearch from './gif-search';
 
 const Header = () => {
     const [categories, setCategories] = useState([]);
@@ -67,6 +68,8 @@ const Header = () => {
                 </div>}
             </div>
             {/*  search  */}
+            {/* //search */}
+            <GifSearch />
          
         </nav>
     )       
