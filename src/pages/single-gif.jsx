@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import {GifState} from "../context/gif-context";
-import Gif from "../components/Gif";
+import Gif from "../components/GifTemp";
 import FollowOn from "../components/follow-on";
 
 import {HiOutlineExternalLink} from "react-icons/hi";
