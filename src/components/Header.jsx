@@ -31,7 +31,7 @@ const Header = () => {
         <Link to={"/"} className="flex gap-2">
           <img src="/logo.svg" alt="Giphy Logo" className="w-8" />
           <h1 className="text-5xl font-bold tracking-tight cursor-pointer">
-            GIPHY
+            GIPHER
           </h1>
         </Link>
 
