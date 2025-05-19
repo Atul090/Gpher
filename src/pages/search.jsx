@@ -15,7 +15,7 @@ const SearchPage = () => {
   const fetchSearchResults = async () => {
     const {data} = await gf.search(query, {
       sort: "relevant",
-      lang: "en",
+        lang: "en",
       type: filter,
       limit: 20,
     });
