@@ -16,6 +16,8 @@ const GifProvider = ({children}) => {
     const favorites = JSON.parse(localStorage.getItem("favoriteGIFs")) || [];
     setFavorites(favorites);
   }, []);
+  //add share and enter to search
+  
 
   const addToFavorites = (id) => {
     console.log(id);
